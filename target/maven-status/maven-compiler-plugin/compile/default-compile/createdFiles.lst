@@ -1,0 +1,7 @@
+com\kaishengit\mapper\DiskMapper.class
+com\kaishengit\contorller\DiskContprller.class
+com\kaishengit\service\DiskService.class
+com\kaishengit\dto\AjaxResult.class
+com\kaishengit\exception\NotFountException.class
+com\kaishengit\pojo\Disk.class
+com\kaishengit\service\impl\DiskServiceImpl.class

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaishengit.mapper.DiskMapper">
+
+    <insert id="save">
+        INSERT  INTO  pan (name,source_name,fid,size,create_time,type) VALUE
+        (#{name},#{sourceName},#{fid},#{size},#{createTime},#{type})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM  pan WHERE id = #{id}
+    </delete>
+
+    <!--批量删除-->
+    <delete id="deleteAll">
+            DELETE FROM  pan WHERE id IN
+            (
+            <foreach collection="list" item="id" separator=",">
+                #{id}
+            </foreach>
+            )
+    </delete>
+
+    <!--根据fid查找，-->
+    <select id="findByFid" resultType="com.kaishengit.pojo.Disk">
+        SELECT * FROM pan WHERE fid = #{fid}
+    </select>
+
+    <select id="findById" resultType="com.kaishengit.pojo.Disk">
+        SELECT * FROM pan WHERE id = #{fid}
+    </select>
+
+    <select id="findAll" resultType="com.kaishengit.pojo.Disk">
+        SELECT * FROM pan
+    </select>
+</mapper>
